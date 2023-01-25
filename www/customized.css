@@ -1,0 +1,17 @@
+main {
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#list-title {
+    color: #FFF;
+    background-color: #0d6efd;
+}

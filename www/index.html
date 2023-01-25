@@ -4,26 +4,65 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Password Manager</title>
+  <link rel="stylesheet" href="./customized.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/cc976dc165.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <main>
-    <ul></ul>
-  </main>
-  <script>
-    let drawData = (data) => {
-      data.forEach(category => {
-        let parent = document.getElementsByTagName('ul')[0]
-        let child = document.createElement('li')
-        // child.innerText = JSON.stringify(category)
-        child.innerText = category.name
-        parent.appendChild(child)
-      })
-    }
+    <h1>Gestor de contraseñas</h1>
+    <div class="btn-group" role="group" aria-label="Basic outlined example">
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Añadir categoría</button>
+      <button type="button" class="btn btn-outline-primary" onclick="window.location.href='./add-site.html'">Añadir sitio</button>
+    </div>
+    
+    <div class="container">
+      <div class="categories">
+        <ul class="list-group">
+          <li class="list-group-item" id="list-title">Categorías</li>
+        </ul>
+      </div>
+      <div class="sites">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Sitio</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Fecha creación</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id = "sites">
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-    fetch("http://localhost:3000/categories")
-      .then(res => res.json())
-      .then(data => drawData(data))
-  </script>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir categoría</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form name="category" id="category">
+              <div class="mb-3">
+                  <label for="url" class="form-label">Nombre de la categoría</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+              </div>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary" id="addCategory">Añadir</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+  <script src="./main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>

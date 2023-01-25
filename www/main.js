@@ -1,5 +1,4 @@
-
-    let drawCategories = (data) => {
+  let drawCategories = (data) => {
         data.forEach((category, index) => {
             let parent = document.getElementsByTagName('ul')[0]
             let child = document.createElement('li')
@@ -20,12 +19,6 @@
         .then(data => { drawCategories(data);
         showSites(data[0].id)
     })
-
-    const addCategoryButton = document.getElementById("addCategory")
-
-    addCategoryButton.addEventListener("click", (event) => {
-    event.preventDefault();
-    });
 
     //Mostrar sites según la categoría
     function showSites(id) {
@@ -57,7 +50,8 @@
                     actionDelete.classList.add("fa-solid", "fa-trash");
                     actionDelete.setAttribute('onclick', `deleteSite(${site.id})`)
                 let actionEdit = document.createElement('i');
-                actionEdit.classList.add("fa-solid", "fa-pen");
+                    actionEdit.classList.add("fa-solid", "fa-circle-info");
+                    actionEdit.setAttribute('onclick', `seeSite(${site.id})`)
                 name.innerText = site.name
                 username.innerText = site.user
                 createdAt.innerText = site.createdAt
@@ -90,10 +84,20 @@
             window.location.reload();
         });
     }
-        
-    
+
+    //Ver site
+    function seeSite(id) {
+        window.localStorage.setItem('siteId', id);
+        window.open("site.html", "_blank");
+    }
 
     //Añadir categoría
+    const addCategoryButton = document.getElementById("addCategory")
+
+    addCategoryButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    });
+
     document.getElementById("addCategory").onclick = function() {
         var name = document.getElementById("name").value;
         if(name.length == 0 || name.indexOf(" ") == 0) { //valida que el nombre no esté vacío o con solamente espacios en blanco
@@ -114,3 +118,17 @@
         return false
     }
 }
+
+//Dirigir a añadir un site de la categoría seleccionada
+function goToAddSite() {
+    let category = document.getElementsByClassName("actual")[0];
+    let categoryId = category.id
+    let categoryName = category.innerText
+    window.localStorage.setItem('categoryId', categoryId);
+    window.localStorage.setItem('categoryName', categoryName);
+    window.localStorage.setItem('siteId', " ");
+    window.open("site.html", "_blank");
+}
+
+
+

@@ -29,8 +29,7 @@ a:hover {
 
 .list-group-item:hover {
     cursor:pointer;
-    color: #FFF;
-    background-color: #ffc107;
+    font-weight: bold;
 }
 
 .title {

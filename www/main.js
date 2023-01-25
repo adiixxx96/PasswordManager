@@ -27,9 +27,11 @@
         let previousCategory = document.getElementsByClassName("actual")
         for (let element of previousCategory) {
             element.classList.remove("actual")
+            element.style.backgroundColor="#fff"
         }
         let newCategory = document.getElementById(id)
         newCategory.classList.add("actual")
+        newCategory.style.backgroundColor = "#ffc107";
         while(parent.firstChild) {
             parent.removeChild(parent.firstChild);
         }
@@ -119,6 +121,20 @@
         return false
     }
 }
+
+//Eliminar category
+function deleteCategory() {
+    let categoryId = document.getElementsByClassName("actual")[0].id;
+    fetch(`http://localhost:3000/categories/${categoryId}`, {
+        method: `DELETE`,
+        headers: {
+            "Content-type": "application/json"
+        }
+    }).then(function() {
+        window.location.reload();
+    })
+}
+
 
 //Dirigir a añadir un site de la categoría seleccionada
 function goToAddSite() {

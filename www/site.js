@@ -11,7 +11,7 @@ if (siteId == " ") {
     addSiteButton.addEventListener("click", (event) => {
     event.preventDefault();
     });
-    title.innerText = "Añadir un nuevo site";
+    title.innerText = "CREAR UN NUEVO SITIO";
 
     document.getElementById("category").value = categoryName;
 
@@ -53,7 +53,7 @@ if (siteId == " ") {
     //Ver site
     addSiteButton.style.display = 'none'
     passGenerator.style.display = 'none'
-    title.innerText = "Información de site";
+    title.innerText = "DETALLE DEL SITIO";
 
     document.getElementById("category").value = categoryName;
 

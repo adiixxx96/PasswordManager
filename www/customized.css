@@ -1,17 +1,104 @@
 main {
     margin: 0 auto;
-    width: 90%;
+    width: 85%;
     margin-top: 20px;
 }
 
 .container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: start !important;
     margin-top: 20px;
+    align-items: flex-start;
 }
 
 #list-title {
     color: #FFF;
-    background-color: #0d6efd;
+    background-color: #343a40;
+    font-weight: bold;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.categories {
+    width: 300px;
+    margin-bottom: 100px;
+}
+
+.list-group-item:hover {
+    cursor:pointer;
+    color: #FFF;
+    background-color: #ffc107;
+}
+
+.title {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    margin-left: 13px;
+}
+
+.btn-group {
+    margin-left: 13px;
+}
+
+footer {
+    margin-top: 100px;
+}
+
+.table {
+    margin-left: 100px;
+    border-radius: 5px;
+    width: 80%;
+    border: 1px solid #343a40;
+}
+
+.table tr {
+    height: 50px;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+i {
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color:#343a40
+}
+
+i:hover {
+    cursor: pointer;
+    color: #ffc107
+}
+
+.content {
+    display: flex;
+    justify-content: flex-start;
+}
+
+form#site {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.pass {
+    display: flex;
+    flex-direction: row;
+}
+
+i {
+    margin-top: 10px;
+}
+
+.botones {
+    margin-top: 20px;
+}
+
+#addSite {
+    margin-left: 20px;
 }

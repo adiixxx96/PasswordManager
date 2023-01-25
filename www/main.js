@@ -2,7 +2,7 @@
         data.forEach((category, index) => {
             let parent = document.getElementsByTagName('ul')[0]
             let child = document.createElement('li')
-            child.className='list-group-item'
+            child.className='list-group-item text-center'
             child.id = category.id
             child.innerText = category.name
             child.setAttribute('onclick','showSites(this.id)')
@@ -37,6 +37,7 @@
         let drawSites = (data) => {
             data.forEach(site => {
                 let tr = document.createElement('tr');
+                    tr.className = 'text-center';
                 let name = document.createElement('td');
                 let username = document.createElement('td');
                 let createdAt = document.createElement('td');
